@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\PermissionsSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call(PostSeeder::class);
+
+        // Authentication admin and user and super admin seed
+        // $this->call(AuthSeeder::class);
+        $this->call(PermissionsSeeder::class);
     }
 }

@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasRoles, HasFactory, Notifiable ;
 
     /**
      * The attributes that are mass assignable.
@@ -18,11 +19,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'first_name',
+        'mobile_token',
+        'last_name',
+        'mobile_number',
+        'mobile_verified_at',
         'activation_token',
         'active',
+        'email',
+        'password',
+        'register_ip',
     ];
 
     /**
@@ -33,6 +39,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'activation_token',
+        'mobile_token'
     ];
 
     /**

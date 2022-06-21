@@ -33,6 +33,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
 
         $validator = Validator::make($request->all(), [
             'post_name' => ['required'],
@@ -45,8 +46,9 @@ class BlogController extends Controller
             return response()->json([
                 'message' => $validator->errors()->first()
             ]);
-        } else {
+        }
 
+        if ($user->can("create post")) {
 
             $post = new Post([
                 'post_name' => $request->post_name,
@@ -57,9 +59,16 @@ class BlogController extends Controller
 
             $post->save();
 
-            return response()->json([
-                'message' => 'post has ben created'
-            ], 201);
+            return response()->json(
+                ['message' => 'post has ben created']
+            );
+
+            // If user has not permission show this error
+        } else {
+
+            return response()->json(
+                ['message' => 'you dont have permission to create post']
+            );
         }
     }
 
@@ -86,19 +95,23 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = Auth::user();
         $post = Post::findOrFail($id);
 
-        $post->update([
-            'post_name' => $request->post_name,
-            'post_content' => $request->post_content,
-            'user_comment' => $request->user_comment,
-            'active' => $request->active,
-        ]);
+        if ($user->can("edit post")) {
+            
+            $post->update([
+                'post_name' => $request->post_name,
+                'post_content' => $request->post_content,
+                'user_comment' => $request->user_comment,
+                'active' => $request->active,
+            ]);
 
 
-        return response()->json([
-            'message' => 'post has ben updated!'
-        ], 200);
+            return response()->json([
+                'message' => 'post has ben updated!'
+            ], 200);
+        }
     }
 
     /**

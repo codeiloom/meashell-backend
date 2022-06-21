@@ -27,13 +27,17 @@ Route::prefix('v1')->group(function () {
 
     // Posts Routes API
     Route::get('posts', [BlogController::class, 'index']);
-    Route::post('post', [BlogController::class, 'store']);
     Route::get('post/{id}', [BlogController::class, 'show']);
-    Route::put('post/{id}', [BlogController::class, 'update']);
-    Route::delete('post/{id}', [BlogController::class, 'destroy']);
-
+    
+    // Route::resource('post', BlogController::class);
+    
+    
     // Private Route
     Route::middleware('auth:api')->group(function () {
+        
+        Route::post('post', [BlogController::class, 'store']);
+        Route::put('post/{id}', [BlogController::class, 'update']);
+        Route::delete('post/{id}', [BlogController::class, 'destroy']);
 
         Route::get('users', [LoginController::class, 'users']);
     });
