@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "1576ee47-d2f4-4f2c-aa13-00b1f69f61fa",
+		"name": "Mea Shell",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11489907"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"bahareh\",\n    \"email\" : \"bahareh@test.com\",\n    \"password\" : \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"bahareh@test.com\",\n    \"password\" : \"1234567890\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Writer Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"user@example.com\",\n    \"password\" : \"useruser\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login super admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"super@admin.com\",\n    \"password\" : \"supersuper\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users list Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Show all posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/post",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show post by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/post/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  post by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/post/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update post by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"post_name\" : \"مقاله زنان زایمان\",\n    \"post_content\" : \"aiusdfibasgbadifgbadbgadfgbadifg\",\n    \"user_comment\" : false,\n    \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/post/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"post_name\" : \"اسم مقاله\",\n    \"post_content\" : \"aiusdfibasgbadifgbadbgadfgbadifg\",\n    \"user_comment\" : true,\n    \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/post",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODViM2FhZTZmZmVkNmRmYWU4OGRkMTY4NjhlNTFlMzMyMmE3MDVlYTA5NGVjNWU4ZWQzZmZkYWZkZTNmZTYwMTBjMzI5MDJlNTVjNzczZDkiLCJpYXQiOjE2NTU4MzU1ODQuNTQwOTc5LCJuYmYiOjE2NTU4MzU1ODQuNTQwOTgsImV4cCI6MTY3MTY0Njc4NC41MzI5OTgsInN1YiI6IjI1ODQzMCIsInNjb3BlcyI6W119.Osye5hlOvyTVm9PlisUI19TX_TG_t-BiK4gSPxdoeHvAOs5NUVPQS9N5bxHJ-9zyjpfYMJJGefebyR9S0ZIhbiilTYTbOQy7KFFyVFqtzVpKTxdtdKgUlQMKuC4z8YLvOORdIYBxW5mcPPcFlyserc_LWsSWnMr_bv-tlez5eqnSmrUg0wy32CYcJQvE-IGolAam7mLVV6pBeBrOq7Vi2ZupUaA47u0_QO5uIgCMATJKNU0q4rQ0SwhbFCtuN3eOBMHH8oSxYlz8nPUO4mNrMpV5LcO7HT-Sn4jyWN1mpwE6qRlPfdxX1pldKMkbQ7Czz8h_iF-Rd50HgstO61i5mPPtF18AKJlXHJbZwRjLFKX4ytGnkzyXUjuidVO1A8RTq68Mn7TMkJgnUyGx1QnIZL4AsS5pUq7_4nuG83WNsG__QQw-sHAp7YRVv-Z2RWC9gC09D36wUpRjijs7s2q8oAJzw1NWYeIrZlWYn7k14oy4hctMXbi4uqZMZ691r1z3amPLvSaEOCNHgYUCUgpFOlMLrpONz9uwQ3M56rNQK3mXvQLtF_mc57rWioykwxXkXRk9ntCcSz4QHfCDqfycU9wWiQskLcc109yaUKJnGKZdo15lALtp89QfAZTO25ojcuAUUIXaPldVZiuwFgfdIdA6xfNyEXaIm1jU8OWYoEg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
